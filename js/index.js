@@ -73,19 +73,21 @@ messageForm.addEventListener('submit', (Event) => {
   //}
 })
 
-/*  6.1 | AJAX
-const githubRequest = new XMLHttpRequest()
-githubRequest.addEventListener('load', function() {
-     const repo = JSON.parse(this.response)
-     const projectSection = document.querySelector('#projects')
-     const projectList = projectSection.querySelector('ul')
-     for (let i=0; i<repo.length; i++) {
-         const project = document.createElement('li')
-         project.innerHTML = `<a href='${repo[i].html_url}'>${repo[i].name}</a>`
-         projectList.appendChild(project)
-   }
-})
-*/
+//  6.1 | AJAX
+// const githubRequest = new XMLHttpRequest()
+// githubRequest.addEventListener('load', function() {
+//      const repo = JSON.parse(this.response)
+//      const projectSection = document.querySelector('#projects')
+//      const projectList = projectSection.querySelector('ul')
+//      for (let i=0; i<repo.length; i++) {
+//          const project = document.createElement('li')
+//          project.innerHTML = `<a href='${repo[i].html_url}'>${repo[i].name}</a>`
+//          projectList.appendChild(project)
+//    }
+// })
+//  githubRequest.open('GET', 'https://api.github.com/users/alpacapunch/repos')
+//  githubRequest.send()
+
 
 //  6.2 | API
 fetch('https://api.github.com/users/alpacapunch/repos')
