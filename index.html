@@ -3,92 +3,139 @@
 
 <head>
   <title>Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="author" content="Paola Myers" />
-  <meta name="description" content="portfolio site" />
+  <meta name="description" content="Portfolio Website" />
   <meta name="keywords" content="html, css, github, portfolio, projects, experience, work" />
-</head>
+  <link rel="stylesheet" href="css/index.css" />
 
-<body>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&family=Poppins:wght@200;400;500;900&family=Roboto:wght@400;500;700&display=swap');
+  </style>
+</head>
+<header>
+  <div class="photo">
+    <img src="profile.jpg" class="rounded" />
+  </div>
+  <h1>Paola Myers</h1>
+
   <nav id="navbar">
     <ul>
-      <li><a href="#">about</a></li>
-      <li><a href="#">education & experience</a></li>
-      <li><a href="#">contact</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Education & Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#messageForm">Message Me</a></li>
     </ul>
   </nav>
+</header>
 
-  <h1>Paola Natalie Gonzalez Myers</h1>
+<body>
+  <div class="container">
+    <section id='about'>
+      <h2>About</h2>
+      <p>
+        I am Paola (she/her), most people call me Pow. Programming is the only career I
+        can envision for myself. This will have to do for the about me section
+        for now.
+      </p>
+    </section>
 
-  <section>
-    <h2>About</h2>
-    <p>
-      I am Paola (she/her), most people call me Pow. Programming is the only career I
-      can envision for myself. This will have to do for the about me section
-      for now.
-    </p>
-  </section>
+    <section id='skills'>
+      <h2>Skills</h2>
+        <ul class='containSkills'></ul>
+    </section>
 
-  <section>
-    <h2>Education & Experience</h2>
-    <ul>
-      <li>Ulta Beauty - Prestige Consultant</li>
-      <li>Massage Envy - Esthetician</li>
-      <li>Target - Starbucks Team Member / Barista</li>
-      <li>GameStop - Game Advisor</li>
-      <li>Google through Adecco - Data Center Facilities Technician</li>
-    </br>
-      <li>Central Piedmont Community College - Simulation and Game Development</li>
-      <li>Caldwell Community College & Technical Institute - Computer Technology</li>
-    </ul>
-  </section>
+    <section id='experience'>
+      <h2>Education & Experience</h2>
+      <div class='containExp'>
+        <ul>
+          <li id='google' class='workExp'>
+            <span><strong>Google through Adecco - Data Center Facilities Technician</strong></span>
+            <span class="emphasis">Mar. 2019 to Jul. 2019</span>
+          </li>
+          <li id='gamestop' class='workExp'>
+            <span><strong>GameStop - Game Advisor</strong></span>
+            <span class='emphasis'>May 2014 to Aug. 2015</span>
+          </li>
+          <li id='target' class='workExp'>
+            <span><strong>Target - Starbucks Team Member / Barista</strong></span>
+            <span class='emphasis'>Aug. 2014 to Apr. 2015</span>
+          </li>
+          <li id='massage' class='workExp'>
+            <span><strong>Massage Envy - Esthetician</strong></span>
+            <span class='emphasis'>Aug. 2014 to Apr. 2015</span>
+          </li>
+          <li id='ulta' class='workExp'>
+            <span><strong>Ulta Beauty - Prestige Consultant</strong></span>
+            <span class='emphasis'>May 2011 to Aug. 2013</span>
+          </li>
+          </br>
+          
+          <li id='caldwell' class='acadExp'>
+            <span>Caldwell Community College & Technical Institute - Computer Technology</span>
+            <span class='emphasis'>Sep. 2018 to Present</span>
+          </li>
+          <li id='cpcc' class='acadExp'>
+            <span>Central Piedmont Community College - Simulation & Game Development</span>
+            <span class='emphasis'>Jan. 2015 to May 2017</span>
+          </li>
+          <li id='mitchell' class='acadExp'>
+            <span>Mitchell Community College - Esthetics License</span>
+            <span class='emphasis'>Aug. 2012 to Dec. 2012</span>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-  <section>
-    <p>WIP projects</p>
-    <ul>
-      <li></li>
-    </ul>
-  </section>
+    <section id='projects'>
+      <h2>WIP projects</h2>
+      <ul>
+        <!-- index.js -->
+      </ul>
+    </section>
 
-  <section id = 'skills'>
-    <h2>Skills</h2>
-    <ul></ul>
-  </section>
+    <section id = 'messageForm'>
+      <h2>Leave a Message</h2>
+      <form name='leave_message'>
+        <label class='userInput'>Name</label>
+        <br>
+        <input type='text' name='name' required='true'>
+        <br>
 
-  <section>
-    <h2>Contact</h2>
-    <p>
-      <li><a href="mailto: paola_natalie@outlook.com">paola_natalie@outlook.com</a></li>
+        <label class='userInput'>Email Address</label>
+        <br>
+        <input type='email' name='email' required='true'>
+        <br>
+
+        <label class='userInput'>Message</label>
+        <br>
+        <textarea name='message' required='true'></textarea>
+        <br>
+        <button id='post' type='submit'>Kindly Submit</button>
+      </form>
+    </section>
+
+    <section id='messages'>
+      <h2>Messages</h2>
+      <ul id = 'messageList'>
+        <!-- index.js -->
+      </ul>
+    </section>
+  </div>
+</body>
+
+<footer>
+  <section id='contact'>
+    <ul id='social'>
+      <li><a href="mailto: paola_natalie@outlook.com">Email</a></li>
       <li><a href="https://www.facebook.com/paolaO.Onatalie" target="_blank">Facebook</a></li>
       <li><a href="https://www.linkedin.com/in/paola-myers-8a90a5103" target="_blank">LinkedIn</a></li>
-    </p>
-  </section>
-
-  <section>
-    <h2>Leave a Message</h2>
-    <form name = 'leave_message'>
-      <label>Name</label><br>
-      <input type = 'text' name = 'name' required><br>
-
-      <label>Email Address</label><br>
-      <input type = 'email' name = 'email' required><br>
-
-      <label>Message</label><br>
-      <textarea name = 'message' required></textarea><br>
-
-      <button type = 'submit'>Submit</button>
-    </form>
-  </section>
-
-  <section id = 'messages'>
-    <h2>Messages</h2>
-    <ul>
-      <!-- index.js -->
     </ul>
   </section>
-  <footer>
-      <!-- index.js -->
-  </footer>
-  <script src="js/index.js"></script>
-</body>
+  <!-- index.js -->
+</footer>
+<script src="js/index.js"></script>
 
 </html>

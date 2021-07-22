@@ -7,11 +7,12 @@ const footer = document.querySelector('footer');
 //create
 const copyright = document.createElement('p');
 //display name & current year
-copyright.innerHTML = `Paola Myers ${thisYear}`;
+copyright.innerHTML = `@ Paola Myers ${thisYear}`;
+copyright.classList.add('copyright')
 //insert
 footer.appendChild(copyright);
 //creating skills list
-const skills = ['JavaScript', 'JAVA', 'C++', 'C#', 'PHP', 'SQL', 'HTML', 'CSS'];
+const skills = ['JS', 'JAVA', 'C++', 'C#', 'PHP', 'SQL', 'HTML', 'CSS'];
 //selection
 const skillsSection = document.querySelector('#skills');
 //selection
@@ -22,6 +23,7 @@ for (let i = 0; i < skills.length; i++) {
   let skill = document.createElement('li');
   skill.innerHTML = skills[i];
   //append 'skill' to 'skillsList'
+  skill.classList.add('techSkills')
   skillsList.appendChild(skill);
 }
 
@@ -34,39 +36,69 @@ messageForm.addEventListener('submit', (Event) => {
   Event.preventDefault()
   //form field variables retrieving input
   const name = Event.target.name.value
-  console.log('name')
+  console.log(name)
   const email = Event.target.email.value
-  console.log('email')
+  console.log(email)
   const message = Event.target.message.value
-  console.log('message')
+  console.log(message)
   //selection
   const messageSection = document.querySelector('#messages')
   //selection
   const messageList = messageSection.querySelector('ul')
   //create
   const newMessage = document.createElement('li')
-  //set 
-  newMessage.innerHTML = `<a href = "mailto:${email}">${name}</a> wrote: <span>${message}</span> `
+  //set
+  newMessage.innerHTML = `<a href='mailto: ${email}'>${name}</a> wrote: <span>${message}</span>`
   //remove button
   const removeButton = document.createElement('button')
   //setting inner text
-  removeButton.innerText = 'remove'
+  removeButton.innerText = 'Remove'
   //setting type attribute
   removeButton.type = 'button'
   //click event
   removeButton.addEventListener('click', (Event) => {
     //finding parent element
-    const entry = Event.target.parentNode
+    const entry = removeButton.parentNode
     entry.remove()
   })
+    //append removeButton
+    newMessage.appendChild(removeButton)
+    //append newMessage
+    messageList.appendChild(newMessage)
+    //reset form
+    Event.target.reset()
   //hide #messages when empty
-  if (messageList.children.length < 1) {
-    messageSection.style.display = 'none'
-  }
-  //append removeButton
-  newMessage.appendChild(removeButton)
-  //append newMessage
-  messageList.appendChild(newMessage)
-  //reset form
-  Event.target.reset()
+  //if (messageList.children.length < 1) {
+  //  messageSection.style.display = 'none'
+  //}
 })
+
+//  6.1 | AJAX
+// const githubRequest = new XMLHttpRequest()
+// githubRequest.addEventListener('load', function() {
+//      const repo = JSON.parse(this.response)
+//      const projectSection = document.querySelector('#projects')
+//      const projectList = projectSection.querySelector('ul')
+//      for (let i=0; i<repo.length; i++) {
+//          const project = document.createElement('li')
+//          project.innerHTML = `<a href='${repo[i].html_url}'>${repo[i].name}</a>`
+//          projectList.appendChild(project)
+//    }
+// })
+//  githubRequest.open('GET', 'https://api.github.com/users/alpacapunch/repos')
+//  githubRequest.send()
+
+
+//  6.2 | API
+fetch('https://api.github.com/users/alpacapunch/repos')
+    .then(res => res.json())
+    .then(repo => {
+        const projectSection = document.querySelector('#projects')
+        const projectList = projectSection.querySelector('ul')
+        for (let i=0; i<repo.length; i++) {
+            const project = document.createElement('li')
+            project.innerHTML = `<a href='${repo[i].html_url}'>${repo[i].name}</a>`
+            projectList.appendChild(project)
+        }
+    })
+    .catch(error => console.log('There was an error loading the request', error))
